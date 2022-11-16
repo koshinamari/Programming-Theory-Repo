@@ -4,10 +4,13 @@ using UnityEngine;
 
 public abstract class Capsule : MonoBehaviour
 {
+    
+    public GameObject linkToObject;
+
     // ENCAPSULATION
     protected string _name { get; set; }
     protected string _colorName { get; set; }
-    protected Material _material { get; set; }
+    protected Color _materialColor { get; set; }
     protected string _materialName { get; set; }
 
 
@@ -21,6 +24,13 @@ public abstract class Capsule : MonoBehaviour
     // DisplayText is an Example for ABSTRACTION
     public virtual void DisplayText()
     {
-        MainManager.Instance.DisplayText("This is the shape class.");
+        StartCoroutine(ChangeSize());
+    }
+
+    public IEnumerator ChangeSize()
+    {
+        linkToObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+        yield return new WaitForSeconds(0.1f);
+        linkToObject.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
     }
 }

@@ -4,22 +4,13 @@ using UnityEngine;
 
 public class PlayerDataHandle : MonoBehaviour
 {
-    //Static Class for save the current player data;
-    //Singleton pattern
-
-    public static PlayerDataHandle Instance;
+    //Static member for save the current player data;
+    public static PlayerDataHandle Instance { get; private set; } // other classes can only read but can`t set this variable - ENCAPSULATION
 
     public string PlayerName;
 
-    public int Score;
-
     private void Awake()
     {
-        //we don`t actually need this if statement because when we are in the Main Scene we can`t return to the Start Menu Scene where the Player Data Handle Object already exists.
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-        }
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }

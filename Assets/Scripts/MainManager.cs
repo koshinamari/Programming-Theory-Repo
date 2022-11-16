@@ -7,7 +7,7 @@ public class MainManager : MonoBehaviour
 {
     public static MainManager Instance;
 
-    [SerializeField] private Text textToDisplay;
+    public Text textToDisplay;
 
 
     private void Awake()

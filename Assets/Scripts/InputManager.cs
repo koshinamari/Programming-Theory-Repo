@@ -27,16 +27,24 @@ public class InputManager : MonoBehaviour
                 switch (hit.transform.name)
                 {
                     case "White":
+                        hitTransform.GetComponent<Capsule>().linkToObject = hit.transform.gameObject;
                         hitTransform.GetComponent<WhiteCapsule>().DisplayText();
-                        hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+                        
+
                         break;
+
                     case "Green":
+                        hitTransform.GetComponent<Capsule>().linkToObject = hit.transform.gameObject;
                         hitTransform.GetComponent<GreenCapsule>().DisplayText();
-                        hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+                        
+
                         break;
+
                     case "Blue":
+                        hitTransform.GetComponent<Capsule>().linkToObject = hit.transform.gameObject;
                         hitTransform.GetComponent<BlueCapsule>().DisplayText();
-                        hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+                        
+
                         break;
 
                 }
